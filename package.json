@@ -18,5 +18,7 @@
       "^.+\\.js$": "babel-jest"
     }
   },
-  "dependencies": {}
+  "dependencies": {
+    "ramda": "^0.25.0"
+  }
 }
