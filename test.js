@@ -1,4 +1,5 @@
 import { parseAccountNumber, splitIntoDigits, splitIntoChunks } from './parser'
+import { _0 } from './utils'
 
 describe('number scanner', () => {
   describe('splitIntoChunks', () => {
@@ -47,7 +48,7 @@ describe('number scanner', () => {
     })
   })
 
-  describe.skip('splitIntoDigits', () => {
+  describe('splitIntoDigits', () => {
     it('gets nine digits', () => {
       const input = [
         ' _  _  _  _  _  _  _  _  _ ',
@@ -55,6 +56,39 @@ describe('number scanner', () => {
         '|_||_||_||_||_||_||_||_||_|',
       ].join('\n')
       expect(splitIntoDigits(input)).toHaveLength(9)
+    })
+
+    it('represents digits as strings', () => {
+      const input = [
+        ' _  _  _  _  _  _  _  _  _ ',
+        '| || || || || || || || || |',
+        '|_||_||_||_||_||_||_||_||_|',
+      ].join('\n')
+      const digits = splitIntoDigits(input)
+
+      digits.map(digit => expect(typeof digit).toBe('string'))
+    })
+
+    it('returns digits of correct length', () => {
+      const input = [
+        ' _  _  _  _  _  _  _  _  _ ',
+        '| || || || || || || || || |',
+        '|_||_||_||_||_||_||_||_||_|',
+      ].join('\n')
+      const digits = splitIntoDigits(input)
+
+      digits.map(digit => expect(digit).toHaveLength(9))
+    })
+
+    it('returns digits of 0', () => {
+      const input = [
+        ' _  _  _  _  _  _  _  _  _ ',
+        '| || || || || || || || || |',
+        '|_||_||_||_||_||_||_||_||_|',
+      ].join('\n')
+      const digits = splitIntoDigits(input)
+
+      digits.map(digit => expect(digit).toEqual(_0))
     })
   })
 
