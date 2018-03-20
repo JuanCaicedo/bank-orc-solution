@@ -9,52 +9,6 @@ import {
 import { _0, _1 } from './utils'
 
 describe('number scanner', () => {
-  describe('splitIntoChunks', () => {
-    it('returns array', () => {
-      const input = [
-        ' _  _  _  _  _  _  _  _  _ ',
-        '| || || || || || || || || |',
-        '|_||_||_||_||_||_||_||_||_|',
-      ].join('\n')
-      const rows = splitIntoChunks(1, input)
-      expect(rows).toHaveProperty('length')
-      expect(typeof rows).not.toBe('string')
-    })
-
-    it('returns array of strings', () => {
-      const input = [
-        ' _  _  _  _  _  _  _  _  _ ',
-        '| || || || || || || || || |',
-        '|_||_||_||_||_||_||_||_||_|',
-      ].join('\n')
-      const rows = splitIntoChunks(1, input)
-      rows.map(row => expect(typeof row).toBe('string'))
-    })
-
-    it('returns strings of length 27', () => {
-      const input = [
-        ' _  _  _  _  _  _  _  _  _ ',
-        '| || || || || || || || || |',
-        '|_||_||_||_||_||_||_||_||_|',
-      ].join('\n')
-      const rows = splitIntoChunks(27, input)
-      rows.map(row => expect(row).toHaveLength(27))
-    })
-
-    it('returns strings of length 3', () => {
-      const input = ' _  _  _  _  _  _  _  _  _ '
-
-      const rows = splitIntoChunks(3, input)
-      rows.map(row => expect(row).toHaveLength(3))
-    })
-
-    it('returns array of input characters divided by length passed in', () => {
-      const input = ' _  _  _  _  _  _  _  _  _ '
-
-      expect(splitIntoChunks(3, input)).toHaveLength(9)
-    })
-  })
-
   describe('splitIntoDigits', () => {
     it('gets nine digits', () => {
       const input = [
