@@ -9,3 +9,6 @@ https://github.com/testdouble/contributing-tests/wiki/Bank-OCR-kata
 ```
 npm run test
 ```
+
+## TODO
+- [ ] validate that `splitByRows` can only receive numbers
