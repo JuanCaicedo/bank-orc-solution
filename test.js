@@ -1,6 +1,7 @@
 import {
   parseSingleNumber,
   parseAccountNumber,
+  calculateChecksum,
   splitIntoDigits,
   splitIntoChunks,
 } from './parser'
@@ -103,6 +104,18 @@ describe('number scanner', () => {
     })
     it('can parse 1', () => {
       expect(parseSingleNumber(_1)).toEqual(1)
+    })
+  })
+
+  describe('calculateChecksum', () => {
+    it('should get 0 for valid account number', () => {
+      const accountNumber = '345882865'
+      expect(calculateChecksum(accountNumber)).toEqual(0)
+    })
+
+    it('should get non 0 for non-valid account number', () => {
+      const accountNumber = '023456789'
+      expect(calculateChecksum(accountNumber)).not.toEqual(0)
     })
   })
 

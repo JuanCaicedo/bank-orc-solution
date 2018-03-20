@@ -20,6 +20,16 @@ export const splitIntoDigits = accountNumber => {
   return zippedRows.map(zippedRow => zippedRow.join(''))
 }
 
+export const calculateChecksum = accountNumber => {
+  const digits = accountNumber.split('')
+  const digitsReversed = digits.reverse()
+  const digitsMultiplied = digitsReversed.map(
+    (digit, index) => digit * (index + 1)
+  )
+  const sum = R.sum(digitsMultiplied)
+  return sum % 11
+}
+
 export const parseSingleNumber = digitString => {
   if (digitString === _0) return 0
   else if (digitString === _1) return 1
