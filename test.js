@@ -116,13 +116,94 @@ describe('number scanner', () => {
       expect(parseAccountNumber(input)).toEqual('000000000')
     })
 
-    it.skip('can recognize ones', () => {
+    it('can recognize ones', () => {
       const input = [
         '                           ',
         '  |  |  |  |  |  |  |  |  |',
         '  |  |  |  |  |  |  |  |  |',
       ].join('\n')
       expect(parseAccountNumber(input)).toEqual('111111111')
+    })
+
+    it('can recognize twos', () => {
+      const input = [
+        ' _  _  _  _  _  _  _  _  _ ',
+        ' _| _| _| _| _| _| _| _| _|',
+        '|_ |_ |_ |_ |_ |_ |_ |_ |_ ',
+      ].join('\n')
+      expect(parseAccountNumber(input)).toEqual('222222222')
+    })
+
+    it('can recognize threes', () => {
+      const input = [
+        ' _  _  _  _  _  _  _  _  _ ',
+        ' _| _| _| _| _| _| _| _| _|',
+        ' _| _| _| _| _| _| _| _| _|',
+      ].join('\n')
+      expect(parseAccountNumber(input)).toEqual('333333333')
+    })
+
+    it('can recognize fours', () => {
+      const input = [
+        '                           ',
+        '|_||_||_||_||_||_||_||_||_|',
+        '  |  |  |  |  |  |  |  |  |',
+      ].join('\n')
+      expect(parseAccountNumber(input)).toEqual('444444444')
+    })
+
+    it('can recognize fives', () => {
+      const input = [
+        ' _  _  _  _  _  _  _  _  _ ',
+        '|_ |_ |_ |_ |_ |_ |_ |_ |_ ',
+        ' _| _| _| _| _| _| _| _| _|',
+      ].join('\n')
+      expect(parseAccountNumber(input)).toEqual('555555555')
+    })
+
+    it('can recognize sixes', () => {
+      const input = [
+        ' _  _  _  _  _  _  _  _  _ ',
+        '|_ |_ |_ |_ |_ |_ |_ |_ |_ ',
+        '|_||_||_||_||_||_||_||_||_|',
+      ].join('\n')
+      expect(parseAccountNumber(input)).toEqual('666666666')
+    })
+
+    it('can recognize sevens', () => {
+      const input = [
+        ' _  _  _  _  _  _  _  _  _ ',
+        '  |  |  |  |  |  |  |  |  |',
+        '  |  |  |  |  |  |  |  |  |',
+      ].join('\n')
+      expect(parseAccountNumber(input)).toEqual('777777777')
+    })
+
+    it('can recognize eights', () => {
+      const input = [
+        ' _  _  _  _  _  _  _  _  _ ',
+        '|_||_||_||_||_||_||_||_||_|',
+        '|_||_||_||_||_||_||_||_||_|',
+      ].join('\n')
+      expect(parseAccountNumber(input)).toEqual('888888888')
+    })
+
+    it('can recognize nines', () => {
+      const input = [
+        ' _  _  _  _  _  _  _  _  _ ',
+        '|_||_||_||_||_||_||_||_||_|',
+        ' _| _| _| _| _| _| _| _| _|',
+      ].join('\n')
+      expect(parseAccountNumber(input)).toEqual('999999999')
+    })
+
+    it('can recognize mixed account number', () => {
+      const input = [
+        '    _  _     _  _  _  _  _ ',
+        '  | _| _||_||_ |_   ||_||_|',
+        '  ||_  _|  | _||_|  ||_| _|',
+      ].join('\n')
+      expect(parseAccountNumber(input)).toEqual('123456789')
     })
   })
 })

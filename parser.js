@@ -34,4 +34,8 @@ export const parseSingleNumber = digitString => {
   return null
 }
 
-export const parseAccountNumber = () => '000000000'
+export const parseAccountNumber = accountNumber => {
+  const digits = splitIntoDigits(accountNumber)
+  const numbers = digits.map(parseSingleNumber)
+  return numbers.join('')
+}
