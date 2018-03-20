@@ -1,1 +1,1 @@
-export const parse = () => "000000000"
+export const parseAccountNumber = () => '000000000'
