@@ -10,6 +10,26 @@ describe('number scanner', () => {
       ].join('\n')
       expect(splitByRows(input)).toHaveLength(3)
     })
+
+    it('returns array of strings', () => {
+      const input = [
+        ' _  _  _  _  _  _  _  _  _ ',
+        '| || || || || || || || || |',
+        '|_||_||_||_||_||_||_||_||_|',
+      ].join('\n')
+      const rows = splitByRows(input)
+      rows.map(row => expect(typeof row).toBe('string'))
+    })
+
+    it('returns strings of length of row', () => {
+      const input = [
+        ' _  _  _  _  _  _  _  _  _ ',
+        '| || || || || || || || || |',
+        '|_||_||_||_||_||_||_||_||_|',
+      ].join('\n')
+      const rows = splitByRows(input)
+      rows.map(row => expect(row).toHaveLength(27))
+    })
   })
 
   describe.skip('splitIntoDigits', () => {

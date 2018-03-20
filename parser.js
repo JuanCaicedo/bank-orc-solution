@@ -1,5 +1,5 @@
 export const splitByRows = accountNumber => {
-  return [0, 0, 0]
+  return accountNumber.match(/.{1,27}/g)
 }
 
 export const splitIntoDigits = accountNumber => {
