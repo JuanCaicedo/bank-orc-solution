@@ -1,5 +1,5 @@
 import * as R from 'ramda'
-import { _0 } from './utils'
+import { _0, _1, _2, _3, _4, _5, _6, _7, _8, _9 } from './utils'
 
 export const splitIntoChunks = (amountToSplit, accountNumber) => {
   const splitRegexSrc = `.{1,${amountToSplit}}`
@@ -18,6 +18,20 @@ export const splitIntoDigits = accountNumber => {
   const digitRows = rows.map(row => splitIntoChunks(3, row))
   const zippedRows = zip3(...digitRows)
   return zippedRows.map(zippedRow => zippedRow.join(''))
+}
+
+export const parseSingleNumber = digitString => {
+  if (digitString === _0) return 0
+  else if (digitString === _1) return 1
+  else if (digitString === _2) return 2
+  else if (digitString === _3) return 3
+  else if (digitString === _4) return 4
+  else if (digitString === _5) return 5
+  else if (digitString === _6) return 6
+  else if (digitString === _7) return 7
+  else if (digitString === _8) return 8
+  else if (digitString === _9) return 9
+  return null
 }
 
 export const parseAccountNumber = () => '000000000'

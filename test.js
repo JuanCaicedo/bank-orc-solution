@@ -1,5 +1,10 @@
-import { parseAccountNumber, splitIntoDigits, splitIntoChunks } from './parser'
-import { _0 } from './utils'
+import {
+  parseSingleNumber,
+  parseAccountNumber,
+  splitIntoDigits,
+  splitIntoChunks,
+} from './parser'
+import { _0, _1 } from './utils'
 
 describe('number scanner', () => {
   describe('splitIntoChunks', () => {
@@ -89,6 +94,15 @@ describe('number scanner', () => {
       const digits = splitIntoDigits(input)
 
       digits.map(digit => expect(digit).toEqual(_0))
+    })
+  })
+
+  describe('parseSingleNumber', () => {
+    it('can parse 0', () => {
+      expect(parseSingleNumber(_0)).toEqual(0)
+    })
+    it('can parse 1', () => {
+      expect(parseSingleNumber(_1)).toEqual(1)
     })
   })
 
