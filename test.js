@@ -1,7 +1,18 @@
-import { parseAccountNumber, splitIntoDigits } from './parser'
+import { parseAccountNumber, splitIntoDigits, splitByRows } from './parser'
 
 describe('number scanner', () => {
-  describe('splitIntoDigits', () => {
+  describe('splitByRows', () => {
+    it('returns array', () => {
+      const input = [
+        ' _  _  _  _  _  _  _  _  _ ',
+        '| || || || || || || || || |',
+        '|_||_||_||_||_||_||_||_||_|',
+      ].join('\n')
+      expect(splitByRows(input)).toHaveLength(3)
+    })
+  })
+
+  describe.skip('splitIntoDigits', () => {
     it('gets nine digits', () => {
       const input = [
         ' _  _  _  _  _  _  _  _  _ ',
