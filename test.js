@@ -1,6 +1,17 @@
-import { parseAccountNumber } from './parser'
+import { parseAccountNumber, splitIntoDigits } from './parser'
 
 describe('number scanner', () => {
+  describe('splitIntoDigits', () => {
+    it('gets nine digits', () => {
+      const input = [
+        ' _  _  _  _  _  _  _  _  _ ',
+        '| || || || || || || || || |',
+        '|_||_||_||_||_||_||_||_||_|',
+      ].join('\n')
+      expect(splitIntoDigits(input)).toHaveLength(9)
+    })
+  })
+
   describe('parseAccountNumber', () => {
     it('can recognize zeroes', () => {
       const input = [
