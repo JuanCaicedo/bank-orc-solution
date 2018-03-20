@@ -12,3 +12,4 @@ npm run test
 
 ## TODO
 - [ ] validate that `splitByRows` can only receive numbers
+- [ ] replace splitIntoChunks with ramda function
