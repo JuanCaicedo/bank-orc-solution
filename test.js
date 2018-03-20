@@ -1,6 +1,7 @@
 import {
   parseSingleNumber,
   parseAccountNumber,
+  getAccountNumber,
   calculateChecksum,
   splitIntoDigits,
   splitIntoChunks,
@@ -217,6 +218,28 @@ describe('number scanner', () => {
         '  ||_  _|  | _||_|  ||_| _|',
       ].join('\n')
       expect(parseAccountNumber(input)).toEqual('123456789')
+    })
+  })
+
+  describe('getAccountNumber', () => {
+    it('returns number for valid account number', () => {
+      const input = [
+        '    _  _     _  _  _  _  _ ',
+        '  | _| _||_||_ |_   ||_||_|',
+        '  ||_  _|  | _||_|  ||_| _|',
+      ].join('\n')
+      expect(getAccountNumber(input)).toEqual('123456789')
+    })
+
+    it('throws error for invalid account number', () => {
+      const input = [
+        ' _  _  _     _  _  _  _  _ ',
+        '| | _| _||_||_ |_   ||_||_|',
+        '|_||_  _|  | _||_|  ||_| _|',
+      ].join('\n')
+      expect(() => {
+        getAccountNumber(input)
+      }).toThrowError('Not a valid account number')
     })
   })
 })

@@ -49,3 +49,12 @@ export const parseAccountNumber = accountNumber => {
   const numbers = digits.map(parseSingleNumber)
   return numbers.join('')
 }
+
+export const getAccountNumber = possibleAccountNumber => {
+  const accountNumber = parseAccountNumber(possibleAccountNumber)
+  const checksum = calculateChecksum(accountNumber)
+  if (checksum !== 0) {
+    throw new Error('Not a valid account number')
+  }
+  return accountNumber
+}
