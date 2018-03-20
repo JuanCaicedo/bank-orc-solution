@@ -14,3 +14,4 @@ npm run test
 - [ ] validate that getAccountNumber receives strings that are actually numbers
 - [X] replace splitIntoChunks with ramda function
 - [ ] more elegant solution for parseSingleNumber instead of lots of ifs
+- [ ] add docstrings for all functions
