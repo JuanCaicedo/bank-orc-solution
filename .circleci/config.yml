@@ -37,13 +37,13 @@ jobs:
       # run tests!
       - run:
           name: Jest Suite
-          command: npm test -- --testResultsProcessor="jest-junit"
+          command: npm test -- --ci --testResultsProcessor="jest-junit"
           environment:
             JEST_JUNIT_OUTPUT: "reports/junit/js-test-results.xml"
           when: always
 
       - store_test_results:
-          path: ~/junit
+          path: reports/junit
 
       - store_artifacts:
-          path: ~/junit
+          path: reports/junit
